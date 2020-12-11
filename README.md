@@ -1,5 +1,8 @@
 # simpleNIM
-SimpleNIM adalah sebuah program yang memiliki CRUD functions, dimana fungsi tersebut memenuhi:
+SimpleNIM adalah sebuah web app yang melakukan pembacaan, penambahan data, penghapusan, dan pembaharuan data NIM mahasiswa STI ITB 2018. 
+
+## Description
+SimpleNIM memiliki CRUD functions, dimana fungsi tersebut memenuhi:
 CREATE: Menambahkan data baru berisikan nim dan nama yang diinput oleh user
 READ: Mengembalikan nama dari nim yang diinput oleh user
 UPDATE: Melakukan update data nama dari nim yang diinput oleh user
@@ -11,11 +14,25 @@ Untuk melakukan hal tersebut, user akan diarahkan untuk login dengan menggunakan
 
 Setiap akses yang dilakukan dicatat dalam file ```access.log```.
 
-## Table of Contents
-[Project Status](#project status)
-[Project Status](#project status)
+Program ini dijalankan diatas Docker yang akan memudahkan user dan developer dalam menggunakan program tanpa harus melakukan instalasi environment (node package manager).
 
-<a name="project status" />
+## Table of Contents
+
+[Installation](https://github.com/hollyyph/simpleNIM#installation)
+
+[File Structure](https://github.com/hollyyph/simpleNIM#file-structure)
+
+[Library](https://github.com/hollyyph/simpleNIM#library)
+
+- [Frontend](https://github.com/hollyyph/simpleNIM#frontend)
+- [Backend](https://github.com/hollyyph/simpleNIM#backend)
+- [Database](https://github.com/hollyyph/simpleNIM#database)
+- [OAuth 2.0](https://github.com/hollyyph/simpleNIM#oauth-20)
+- [Docker](https://github.com/hollyyph/simpleNIM#docker)
+
+[Deployment](https://github.com/hollyyph/simpleNIM#deployment)
+
+
 ## Project Status
 Saat ini project masih berada dalam tahap development bagian OAuth dan Docker. Development akan dilakukan setelah keseluruhan tahap developement selesai.
 
@@ -31,7 +48,7 @@ npm start
 ```
 
 ## File Structure
-
+TBD
 
 ## Library
 This project use library:
@@ -61,7 +78,9 @@ Untuk sementara ini, frontend masih berjalan di http://localhost:8081/
 
 ### Backend
 Terdapat beberapa fungsi yang diatur dalam backend, seperti akses ke database PostgreSQL, routing, OAuth dengan akun Google, logging. 
-Routing diatur sesuai dengan CRUD functions yang disediakan, yakni GET, POST, PUT, dan DELETE. Untuk routing sendiri diatur oleh library ```router``` yang dimiliki oleh package express
+Routing diatur sesuai dengan CRUD functions yang disediakan, yakni GET, POST, PUT, dan DELETE. Untuk routing sendiri diatur oleh library router yang dimiliki oleh package express. 
+Logging dibuat dengan menggunakan library morgan yang sekaligus mencatat aktivitas log di file ```access.log```.
+
 Untuk sementara ini, backend masih berjalan di http://localhost:5000/
 
 ### Database
@@ -69,7 +88,7 @@ Database menggunakan PostgreSQL. Untuk melakukan akses dari HTTP request ke data
 Untuk sementara ini, backend masih berjalan di http://localhost:5432/
 
 ### OAuth 2.0
-User diharuskan untuk melakukan sign-in dengan akun Google sebelum masuk ke dalam page utama. OAuth ditambahkan di backend dengan menggunakan library passport.js dan cookie-session. 
+User diharuskan untuk melakukan sign-in dengan akun Google sebelum masuk ke dalam page utama. OAuth ditambahkan di backend dengan menggunakan library passport.js dan cookie-session. Passport.js untuk menghubungkan dengan API Google OAuth yang telah dibuat di [https://console.developers.google.com/apis/] dan cookie-session untuk membuat session login. 
 Untuk sementara ini, OAuth masih berjalan di http://localhost:5000/google
 
 ### Docker
