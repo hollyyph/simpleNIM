@@ -20,5 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.simplenims = require("./simplenim.model.js")(sequelize, Sequelize);
+//db.accesslogs = require("./accesslog.model.js")(sequelize, Sequelize);
 
 module.exports = db;

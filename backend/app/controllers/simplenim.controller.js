@@ -85,8 +85,7 @@ exports.update = (req, res) => {
             if (num == 1) {
                 // kasi apa yg diupdate ga si :/
                 nama: nama
-
-                    res.send({
+                res.send({
                     message: "Simplenim data was updated successfully."
                 });
             }

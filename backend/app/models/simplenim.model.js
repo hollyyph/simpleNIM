@@ -1,3 +1,5 @@
+const { Sequelize } = require(".");
+
 module.exports = (sequelize, Sequelize) => {
     const SimpleNIM = sequelize.define("simplenim", {
         nim: {
