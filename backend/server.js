@@ -10,6 +10,8 @@ require('./passport-setup');
 
 const app = express(); //create express app
 
+const homepageURL = "http://localhost:8081/";
+
 var corsOptions = {
     origin: "http://localhost:8081"
 };
@@ -72,7 +74,10 @@ app.get("/failed", (req, res) => {
 });
 
 app.get("/good", isLoggedIn, (req, res) => { //taro frontend
-    res.send(`Welcome ${req.user.email}`);
+    //res.redirect(homepageURL);
+    res.send(`Welcome ${req.user._json.name} ! (email: ${req.user._json.email} )    \n\nRedirecting to Home Page`).setTimeout(3000).redirect(homepageURL);;
+    // console.log(req.user)
+    setTimeout(lala, 10000);
 });
 
 require("./app/routes/simplenim.routes")(app);
@@ -92,7 +97,7 @@ app.get('/google/callback',
 app.get('/logout', (req, res) => {
         req.session = null;
         req.logout();
-        res.redirect('/')
+        res.redirect('/');
     })
     // set port, listen for requests
 const PORT = process.env.PORT || 5000;
