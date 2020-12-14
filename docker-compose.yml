@@ -6,8 +6,22 @@ services:
     image: "hollyyph/simplenimapp:latest" 
     container_name: "nim_backend"
     ports:
-    - "5000:5000" # expose 5000 dalem container ke 5000 hostnya
-    restart: "always" #biar selalu run 
+    - "5000:5000" # expose 5000 dari host ke 5000 container
+    restart: "always" #biar selalu run
+    environment: 
+    - FRONTEND_URL=frontend #kalo gabisa ganti nim_frontend
+    - DB_HOST=rosie.db.elephantsql.com
+    - DB_USER=ucmmjhee
+    - DB_PASSWORD=7RfKZcorlHuXwyU1sekYKulCv_JGN_gh
+    - DB_NAME=ucmmjhee
   # Frontend Service
+  frontend:
+    image: "hollyyph/simplenimview:latest" 
+    container_name: "nim_frontend"
+    ports: 
+    - "8081:80" #nginx http port 80 
+    environment: 
+      - VUE_APP_BACKEND_URL=backend #kalo gabisa ganti nim_backend
+
 
     

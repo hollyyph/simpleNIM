@@ -6,11 +6,13 @@ const cors = require("cors");
 const morgan = require("morgan");
 const passport = require('passport');
 const cookieSession = require("cookie-session");
+const dotenv = require("dotenv");
+
 require('./passport-setup');
+dotenv.config()
 
 const app = express(); //create express app
 
-const homepageURL = "http://localhost:8081/";
 
 var corsOptions = {
     origin: "http://localhost:8081"
@@ -75,9 +77,9 @@ app.get("/failed", (req, res) => {
 
 app.get("/good", isLoggedIn, (req, res) => {
     // Identitas user yang login akan ditampilkan di console
-    console.log(`Welcome ${req.user._json.name} ! (email: ${req.user._json.email} )    \n\nRedirecting to Home Page. Open this link if you're not redirected in 5 seconds ${homepageURL}`)
+    console.log(`Welcome ${req.user._json.name} ! (email: ${req.user._json.email} )    \n\nRedirecting to Home Page. Open this link if you're not redirected in 5 seconds ${process.env.FRONTEND_URL}`)
         // User langsung diredirect ke halaman utama
-    res.redirect(homepageURL);
+    res.redirect(process.env.FRONTEND_URL);
 });
 
 require("./app/routes/simplenim.routes")(app);

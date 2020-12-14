@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: "rosie.db.elephantsql.com",
-    USER: "ucmmjhee",
-    PASSWORD: "7RfKZcorlHuXwyU1sekYKulCv_JGN_gh",
-    DB: "ucmmjhee",
+    HOST: process.env.DB_HOST,
+    USER: process.env.DB_USER,
+    PASSWORD: process.env.DB_PASSWORD,
+    DB: process.env.DB_NAME,
     dialect: "postgres",
     pool: {
         max: 5,
