@@ -73,11 +73,11 @@ app.get("/failed", (req, res) => {
     res.send("You FAILED to login!");
 });
 
-app.get("/good", isLoggedIn, (req, res) => { //taro frontend
-    //res.redirect(homepageURL);
-    res.send(`Welcome ${req.user._json.name} ! (email: ${req.user._json.email} )    \n\nRedirecting to Home Page`).setTimeout(3000).redirect(homepageURL);;
-    // console.log(req.user)
-    setTimeout(lala, 10000);
+app.get("/good", isLoggedIn, (req, res) => {
+    // Identitas user yang login akan ditampilkan di console
+    console.log(`Welcome ${req.user._json.name} ! (email: ${req.user._json.email} )    \n\nRedirecting to Home Page. Open this link if you're not redirected in 5 seconds ${homepageURL}`)
+        // User langsung diredirect ke halaman utama
+    res.redirect(homepageURL);
 });
 
 require("./app/routes/simplenim.routes")(app);

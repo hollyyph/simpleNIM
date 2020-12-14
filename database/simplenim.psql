@@ -1,0 +1,144 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.1
+-- Dumped by pg_dump version 12.1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: simplenims; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.simplenims (
+    id integer NOT NULL,
+    nim character varying(255),
+    nama character varying(255),
+    status boolean,
+    "createdAt" timestamp with time zone NOT NULL,
+    "updatedAt" timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.simplenims OWNER TO postgres;
+
+--
+-- Name: simplenims_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.simplenims_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.simplenims_id_seq OWNER TO postgres;
+
+--
+-- Name: simplenims_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.simplenims_id_seq OWNED BY public.simplenims.id;
+
+
+--
+-- Name: simplenims id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.simplenims ALTER COLUMN id SET DEFAULT nextval('public.simplenims_id_seq'::regclass);
+
+
+--
+-- Data for Name: simplenims; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.simplenims (id, nim, nama, status, "createdAt", "updatedAt") FROM stdin;
+2	18218001	Nyoman Kevin Cahyadi Giri	t	2020-12-09 20:27:18.627+07	2020-12-09 20:27:18.627+07
+3	18218002	Adrian Timotheus Salim	t	2020-12-09 20:27:30.147+07	2020-12-09 20:27:30.147+07
+4	18218003	Muhamad Hudan Widzamil	t	2020-12-09 20:27:40.17+07	2020-12-09 20:27:40.17+07
+5	18218004	Hardy Valenthio Amansyah	t	2020-12-09 20:27:53.695+07	2020-12-09 20:27:53.695+07
+6	18218005	Naufal Alim Wahib	t	2020-12-09 20:30:58.682+07	2020-12-09 20:30:58.682+07
+7	18218006	Rehuel Grace Marbun	t	2020-12-09 20:31:06.864+07	2020-12-09 20:31:06.864+07
+8	18218007	Shafa Amarsya Madyaratri	t	2020-12-09 20:31:14.733+07	2020-12-09 20:31:14.733+07
+9	18218008	Khairunnisa Rifdah	t	2020-12-09 20:31:23.793+07	2020-12-09 20:31:23.793+07
+10	18218009	Adi Hendro	t	2020-12-09 20:31:32.452+07	2020-12-09 20:31:32.452+07
+11	18218010	Madiha Ainayya Faizzati	t	2020-12-09 20:31:46.332+07	2020-12-09 20:31:46.332+07
+12	18218011	Widad Istiqomah	t	2020-12-09 20:31:58.224+07	2020-12-09 20:31:58.224+07
+13	18218014	Novindra Nurrosyid Al Haqi	t	2020-12-09 20:32:10.238+07	2020-12-09 20:32:10.238+07
+14	18218015	Daniel Neolando Hutabalian	t	2020-12-09 20:32:24.194+07	2020-12-09 20:32:24.194+07
+15	18218016	Vhydie Gilang Christianto The	t	2020-12-09 20:32:34.702+07	2020-12-09 20:32:34.702+07
+16	18218017	Cindy Olivia Gunawan	t	2020-12-09 20:33:24.784+07	2020-12-09 20:33:24.784+07
+17	18218018	Patrick Segara	t	2020-12-09 20:33:33.882+07	2020-12-09 20:33:33.882+07
+18	18218019	Raihan Faturrahman	t	2020-12-09 20:33:42.741+07	2020-12-09 20:33:42.741+07
+19	18218020	Ernest Giovanni	t	2020-12-09 20:33:51.261+07	2020-12-09 20:33:51.261+07
+20	18218021	Muhamad Ilman Sukarsa	t	2020-12-09 20:33:59.247+07	2020-12-09 20:33:59.247+07
+21	18218022	Asiya Mufida Yumna	t	2020-12-09 20:34:08.412+07	2020-12-09 20:34:08.412+07
+22	18218023	Akbar Rizki Maulana	t	2020-12-09 20:34:17.767+07	2020-12-09 20:34:17.767+07
+24	18218025	Denny Fardian	t	2020-12-09 20:34:34.986+07	2020-12-09 20:34:34.986+07
+27	18218013	Hollyana Puteri Haryono	t	2020-12-11 03:05:49.118+07	2020-12-11 03:05:49.118+07
+28	18218029	Alya Mizani	t	2020-12-11 03:06:05.509+07	2020-12-11 03:06:05.509+07
+29	18218026	Ichsan Sholeh Abdurrahim	t	2020-12-11 22:34:10.201+07	2020-12-11 22:34:10.201+07
+30	18218027	Rafi Abbel Mohammad	t	2020-12-11 22:38:38.168+07	2020-12-11 22:38:38.168+07
+31	18218028	Rizkin Geordany	t	2020-12-11 22:38:47.815+07	2020-12-11 22:38:47.815+07
+32	18218030	Figo Agil Alunjati	t	2020-12-11 22:39:04.174+07	2020-12-11 22:39:04.174+07
+33	18218031	Jingga Mutiara Windyarahma	t	2020-12-11 22:39:18.707+07	2020-12-11 22:39:18.707+07
+34	18218032	Elisabeth Levana Thedjakusuma	t	2020-12-11 22:39:38.408+07	2020-12-11 22:39:38.408+07
+35	18218033	Alexandra Angeline	t	2020-12-11 22:39:47.367+07	2020-12-11 22:39:47.367+07
+36	18218034	Vincentius Ian Widi Nugroho	t	2020-12-11 22:40:00.586+07	2020-12-11 22:40:00.586+07
+37	18218035	Shofura Salma	t	2020-12-11 22:40:11.343+07	2020-12-11 22:40:11.343+07
+38	18218036	Sulis Tiana	t	2020-12-11 22:40:24.322+07	2020-12-11 22:40:24.322+07
+39	18218037	Wita Dewisari Tasya	t	2020-12-11 22:40:35.705+07	2020-12-11 22:40:35.705+07
+40	18218038	Tafia Alifianty Dinita Putri	t	2020-12-11 22:40:47.643+07	2020-12-11 22:40:47.643+07
+41	18218039	Audrey Betsy Rumapea	t	2020-12-11 22:41:00.778+07	2020-12-11 22:41:00.778+07
+43	18218040	Muhammad Xavier Rafifsyah Prasetyo	t	2020-12-11 22:42:08.181+07	2020-12-11 22:42:08.181+07
+44	18218041	Elbert Shan	t	2020-12-11 22:42:19.384+07	2020-12-11 22:42:19.384+07
+45	18218042	Naomi Yolanda Bernadetta	t	2020-12-11 22:42:31.801+07	2020-12-11 22:42:31.801+07
+46	18218043	Christovito Hidajat	t	2020-12-11 22:42:49.284+07	2020-12-11 22:42:49.284+07
+47	18218044	Kanisius Sosrodimardito	t	2020-12-11 22:43:00.993+07	2020-12-11 22:43:00.993+07
+48	18218045	Pavita Ardhani Sugiharto Putri	t	2020-12-11 22:43:21.032+07	2020-12-11 22:43:21.032+07
+49	18218046	Reza Hadi Fairuztama	t	2020-12-11 22:43:32.227+07	2020-12-11 22:43:32.227+07
+50	18218047	Adriel Gustino Parlinggoman S	t	2020-12-11 22:43:45.146+07	2020-12-11 22:43:45.146+07
+51	18218048	Muhamad Ihza Faida Akbar	t	2020-12-11 22:43:57.121+07	2020-12-11 22:43:57.121+07
+52	18218012	Ayutari Dian Putri	f	2020-12-13 01:00:05.355+07	2020-12-13 01:00:05.355+07
+53	18218049	Salsabiilaa Roihanah	f	2020-12-13 01:00:32.882+07	2020-12-13 01:00:32.882+07
+54	18218050	Garin Ichsan Nugraha	t	2020-12-13 01:01:10.181+07	2020-12-13 01:01:10.181+07
+55	18217501	Carissa Aurelia	t	2020-12-13 01:03:37.529+07	2020-12-13 01:03:37.529+07
+\.
+
+
+--
+-- Name: simplenims_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.simplenims_id_seq', 55, true);
+
+
+--
+-- Name: simplenims simplenims_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.simplenims
+    ADD CONSTRAINT simplenims_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

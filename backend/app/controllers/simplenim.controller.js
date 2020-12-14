@@ -54,7 +54,7 @@ exports.findAll = (req, res) => {
         });
 };
 
-// Find a single SimpleNIM with an nim -- ubah jadi nim ajala
+// Find a single SimpleNIM with a nim 
 exports.findOne = (req, res) => {
     const nim = req.params.nim;
 
@@ -102,7 +102,7 @@ exports.update = (req, res) => {
         });
 };
 
-// Delete a SimpleNIM with the specified nim in the request --fix ubah pake nim
+// Delete a SimpleNIM with the specified nim in the request
 exports.delete = (req, res) => {
     const nim = req.params.nim;
 

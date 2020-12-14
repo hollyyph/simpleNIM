@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  # Backend Service
+  backend: 
+    image: "hollyyph/simplenimapp:latest" 
+    container_name: "nim_backend"
+    ports:
+    - "5000:5000" # expose 5000 dalem container ke 5000 hostnya
+    restart: "always" #biar selalu run 
+  # Frontend Service
+
+    
