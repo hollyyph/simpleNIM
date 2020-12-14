@@ -3,9 +3,13 @@ SimpleNIM adalah sebuah web app yang melakukan pembacaan, penambahan data, pengh
 
 ## Description
 SimpleNIM memiliki CRUD functions, dimana fungsi tersebut memenuhi:
+
 CREATE: Menambahkan data baru berisikan nim dan nama yang diinput oleh user
+
 READ: Mengembalikan nama dari nim yang diinput oleh user
+
 UPDATE: Melakukan update data nama dari nim yang diinput oleh user
+
 DELETE: Melakukan penghapusan data nim dan nama dari nim yang diinput oleh user
 
 Data yang disimpan adalah data nama dan NIM dari mahasiswa STI ITB 2018 dalam database PostgreSQL. Data didapat dari data kelas yang dimiliki oleh developer.
@@ -34,12 +38,12 @@ Program ini dijalankan diatas Docker yang akan memudahkan user dan developer dal
 
 
 ## Project Status
-Saat ini project masih berada dalam tahap development bagian OAuth dan Docker. Development akan dilakukan setelah keseluruhan tahap developement selesai.
+Saat ini project masih berada dalam tahap development bagian Docker. Deployment akan dilakukan setelah keseluruhan tahap developement selesai.
 
 ## Installation
 Jalankan command ini dalam bash pada frontend folder
 ```bash
-npm run serve
+npm run build
 ```
 
 Jalankan command ini dalam bash pada backend folder
@@ -48,14 +52,90 @@ npm start
 ```
 
 ## File Structure
-TBD
+Berikut adalah struktur file dari source code
+```
+Development
+│   .gitignore
+│   README.md
+│   docker-compose.yml
+│   
+├───backend
+│
+├───database
+│
+└───frontend
 
-## Library
-This project use library:
+#STRUKTUR FRONTEND
+frontend
+│   .gitignore
+│   babel.config.js
+│   package-lock.json
+│   package.json
+│   README.md
+│   vue.config.js
+│   Dockerfile
+│   dev.env.js
+│   prod.env.js
+│
+├───node_modules 
+├───public
+│       favicon.ico
+│       google_logo.svg
+│       index.html
+│
+└───src
+    │   App.vue
+    │   gapi.js
+    │   main.js
+    │
+    ├───assets
+    │       logo.png
+    │       logo.svg
+    │
+    ├───components
+    │       FormInput.vue
+    │       HelloWorld.vue
+    │
+    └───plugins
+            vue-google-oauth2.js
+            vuetify.js
+            
+# STRUKTUR BACKEND
+Backend
+│   access.log
+│   Dockerfile
+│   package-lock.json
+│   package.json
+│   passport-setup.js
+│   server.js
+│   .env
+│
+│
+├───node_modules 
+│
+└───app
+    │      
+    ├───config
+    │       db.config.js
+    │
+    ├───controllers
+    │       simplenim.controllers.js
+    │
+    ├───models
+    │       simplenim.models.js
+    │       index.js
+    │
+    └───routes
+            simplenim.routes.js
+
+```
+
+
+## Library and Modules
+Project ini menggunakan library dan modules:
 Frontend (VueJS):
 1. Vuetify
 2. Axios
-3. 
 
 Database (PostgreSQL)
 
@@ -70,30 +150,32 @@ Backend (NodeJS):
 8. Passport
 9. Cookie-session
 10. pg
+11. dotenv
+12. 
 
 ### Frontend
 Hanya terdapat 1 page yang berisikan input untuk melakukan CRUD functions.
 Frontend dibuat dengan menggunakan Vuejs dengan library Vuetify untuk mempermudah pembangunan komponen (seperti button, layout, textbox, dll) dan library Axios untuk melakukan pemanggilan request HTTP.
-Untuk sementara ini, frontend masih berjalan di http://localhost:8081/
+Untuk development, frontend berjalan di http://localhost:8081/
 
 ### Backend
 Terdapat beberapa fungsi yang diatur dalam backend, seperti akses ke database PostgreSQL, routing, OAuth dengan akun Google, logging. 
 Routing diatur sesuai dengan CRUD functions yang disediakan, yakni GET, POST, PUT, dan DELETE. Untuk routing sendiri diatur oleh library router yang dimiliki oleh package express. 
 Logging dibuat dengan menggunakan library morgan yang sekaligus mencatat aktivitas log di file ```access.log```.
 
-Untuk sementara ini, backend masih berjalan di http://localhost:5000/
+Untuk development, backend berjalan di http://localhost:5000/
 
 ### Database
-Database menggunakan PostgreSQL. Untuk melakukan akses dari HTTP request ke database, diatur dengan menggunakan library pg dan pg-store. 
-Untuk sementara ini, backend masih berjalan di http://localhost:5432/
+Database menggunakan PostgreSQL. Untuk melakukan akses dari HTTP request ke database, diatur dengan menggunakan library pg dan pg-store. Database sudah dideploy di ElephantSQL.
+Saat development, backend masih berjalan di http://localhost:5432/, yakni port yang default digunakan oleh PostgreSQL
 
 ### OAuth 2.0
 User diharuskan untuk melakukan sign-in dengan akun Google sebelum masuk ke dalam page utama. OAuth ditambahkan di backend dengan menggunakan library passport.js dan cookie-session. Passport.js untuk menghubungkan dengan API Google OAuth yang telah dibuat di [https://console.developers.google.com/apis/] dan cookie-session untuk membuat session login. 
 Untuk sementara ini, OAuth masih berjalan di http://localhost:5000/google
 
 ### Docker
-TBD
+Frontend dan backend ditaruh diatas Docker Container yang berbeda dan dijalankan secara bersamaan dengan menggunakan docker-compose. 
 
 ## Deployment
-Keseluruhan komponen (rencana) akan dideploy di Heroku/AWS
-Satu buah server untuk frontend, 1 buah server untuk backend, 1 buah server untuk database.
+Keseluruhan komponen (rencana) akan dideploy di Heroku
+Satu buah server untuk frontend dan satu buah server untuk backend.
