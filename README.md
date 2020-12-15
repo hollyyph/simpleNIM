@@ -18,7 +18,7 @@ Untuk melakukan hal tersebut, user akan diarahkan untuk login dengan menggunakan
 
 Setiap akses yang dilakukan dicatat dalam file ```access.log```.
 
-Program ini dijalankan diatas Docker yang akan memudahkan user dan developer dalam menggunakan program tanpa harus melakukan instalasi environment (node package manager).
+Program ini dijalankan diatas Docker Container yang akan memudahkan user dan developer dalam menggunakan program tanpa harus melakukan instalasi environment (node package manager).
 
 ## Table of Contents
 
@@ -38,12 +38,13 @@ Program ini dijalankan diatas Docker yang akan memudahkan user dan developer dal
 
 
 ## Project Status
-Saat ini project masih berada dalam tahap development bagian Docker. Deployment akan dilakukan setelah keseluruhan tahap developement selesai.
+Saat ini project sudah dideploy dan dapat dicoba di https://thirsty-shaw-a2018a.netlify.app/.
+Untuk fungsi INSERT dan UPDATE masih dalam maintenance.
 
 ## Installation
 Jalankan command ini dalam bash pada frontend folder
 ```bash
-npm run build
+npm run serve
 ```
 
 Jalankan command ini dalam bash pada backend folder
@@ -57,7 +58,7 @@ Berikut adalah struktur file dari source code
 Development
 │   .gitignore
 │   README.md
-│   docker-compose.yml
+│   
 │   
 ├───backend
 │
@@ -104,9 +105,11 @@ frontend
 Backend
 │   access.log
 │   Dockerfile
+│   heroku.yml
 │   package-lock.json
 │   package.json
 │   passport-setup.js
+│   static.json
 │   server.js
 │   .env
 │
@@ -150,13 +153,17 @@ Backend (NodeJS):
 8. Passport
 9. Cookie-session
 10. pg
-11. dotenv
-12. 
+11. pg-hstore
+12. router
+13. passport-google-oauth20
+14. dotenv
+15. nodemon
 
 ### Frontend
 Hanya terdapat 1 page yang berisikan input untuk melakukan CRUD functions.
 Frontend dibuat dengan menggunakan Vuejs dengan library Vuetify untuk mempermudah pembangunan komponen (seperti button, layout, textbox, dll) dan library Axios untuk melakukan pemanggilan request HTTP.
 Untuk development, frontend berjalan di http://localhost:8081/
+Saat deployment, frontend berjalan di https://thirsty-shaw-a2018a.netlify.app/
 
 ### Backend
 Terdapat beberapa fungsi yang diatur dalam backend, seperti akses ke database PostgreSQL, routing, OAuth dengan akun Google, logging. 
@@ -164,18 +171,32 @@ Routing diatur sesuai dengan CRUD functions yang disediakan, yakni GET, POST, PU
 Logging dibuat dengan menggunakan library morgan yang sekaligus mencatat aktivitas log di file ```access.log```.
 
 Untuk development, backend berjalan di http://localhost:5000/
+Saat deployment, backend berjalan di https://simplenim-app.herokuapp.com/
 
 ### Database
-Database menggunakan PostgreSQL. Untuk melakukan akses dari HTTP request ke database, diatur dengan menggunakan library pg dan pg-store. Database sudah dideploy di ElephantSQL.
-Saat development, backend masih berjalan di http://localhost:5432/, yakni port yang default digunakan oleh PostgreSQL
+Database menggunakan PostgreSQL. Untuk melakukan akses dari HTTP request ke database, diatur dengan menggunakan library pg dan pg-store. 
+Database sudah dideploy di ElephantSQL.
+Saat development, backend masih berjalan di http://localhost:5432/, yakni port yang default digunakan oleh PostgreSQL.
 
 ### OAuth 2.0
 User diharuskan untuk melakukan sign-in dengan akun Google sebelum masuk ke dalam page utama. OAuth ditambahkan di backend dengan menggunakan library passport.js dan cookie-session. Passport.js untuk menghubungkan dengan API Google OAuth yang telah dibuat di [https://console.developers.google.com/apis/] dan cookie-session untuk membuat session login. 
-Untuk sementara ini, OAuth masih berjalan di http://localhost:5000/google
+Saat development, OAuth masih berjalan di http://localhost:5000/google
+Setelah deployment, OAuth berjalan di https://simplenim-app.herokuapp.com/google
+
 
 ### Docker
-Frontend dan backend ditaruh diatas Docker Container yang berbeda dan dijalankan secara bersamaan dengan menggunakan docker-compose. 
+Backend ditaruh diatas Docker Container saat deployment di Heroku. 
 
 ## Deployment
-Keseluruhan komponen (rencana) akan dideploy di Heroku
-Satu buah server untuk frontend dan satu buah server untuk backend.
+Backend dideploy di Heroku.
+https://simplenim-app.herokuapp.com/
+Frontend dideploy di Netlify.
+https://thirsty-shaw-a2018a.netlify.app/
+
+## Pengembangan Lanjutan
+
+
+# Author
+Hollyana Puteri Haryono
+Sistem dan Teknologi Informasi
+Institut Teknologi Bandung
